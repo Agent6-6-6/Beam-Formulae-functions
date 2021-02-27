@@ -9,3 +9,5 @@ https://engineervsheep.com/2021/moment-shear-deflection-functions-1/
 2021-02-03 - Initial commit
 
 2021-02-28 - Remove ThisWorkbook.cls from commit
+
+2021-02-28 - Fix cantilever functions to fix error regarding deflection including TAN() of slopes/rotations (small error in calculated deflections resulted, becoming more prominant with larger deflections>100mm). Initially differences put down to numerical precision issues

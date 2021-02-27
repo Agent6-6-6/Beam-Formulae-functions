@@ -351,7 +351,7 @@ Private Function BEAM_main_span_PT_M(p_1 As Variant, X As Variant, L_main As Var
     If X <= L_main Then
 
         If X <= L_1 Then
-            moment = -p_1 * (L_main - L_1) / L_main * (X)    'correct
+            moment = -p_1 * (L_main - L_1) / L_main * (X)
         Else
             moment = -p_1 * L_1 * (L_main - X) / L_main
         End If
@@ -535,7 +535,7 @@ Private Function BEAM_cantilever_PT_D(ByVal p_1 As Variant, ByVal X As Variant, 
             pt_rotation = -p_1 * (L_1) ^ 2 / (2 * E_beam * I_beam) - p_1 * (L_1) * L_main / (3 * E_beam * I_beam)
 
             'deflection at location
-            defl = pt_defl - Tan(pt_rotation) * (X - (L_1 + L_main))
+            defl = pt_defl - pt_rotation * (X - (L_1 + L_main))
         Else
             'deflection between right support and point load
             defl = p_1 * (X - L_main) * (2 * L_1 * L_main + 3 * L_1 * (X - L_main) - (X - L_main) ^ 2) / (6 * E_beam * I_beam)
@@ -775,7 +775,7 @@ Private Function BEAM_cantilever_UDL_D(ByVal w_1 As Variant, ByVal w_2 As Varian
     theta_3 = -L_w * ((2 * L_1 ^ 2 + (L_1 + L_2) ^ 2) * w_m + (L_1 + L_2) * L_w * w_2) / (12 * E_beam * I_beam)
 
     'extra cantilever deflection due to support rotation
-    extra_deflection_from_rotation = -Tan(theta_2) * (X - L_main)
+    extra_deflection_from_rotation = -theta_2 * (X - L_main)
 
     If X <= L_main Then
         'deflection in main span
@@ -1005,7 +1005,7 @@ Private Function BEAM_main_span_UDL_D(ByVal w_1 As Variant, ByVal w_2 As Variant
         End If
     Else
         'deflection in the cantilever
-        defl = -Tan(theta_2) * (X - L_main)
+        defl = -theta_2 * (X - L_main)
     End If
 
     'return results
