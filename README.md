@@ -7,3 +7,5 @@ https://engineervsheep.com/2021/moment-shear-deflection-functions-1/
 ### Change log
 
 2021-02-03 - Initial commit
+
+2021-02-28 - Remove ThisWorkbook.cls from commit
